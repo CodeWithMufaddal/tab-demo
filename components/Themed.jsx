@@ -22,20 +22,18 @@ export function useThemeColor(props, colorName) {
   }
 }
 
-export function Text(props) {
+export function ThemedText(props) {
   const { style, lightColor, darkColor, ...otherProps } = props
   const color = useThemeColor({ light: lightColor, dark: darkColor }, "text")
 
-  console.log(color, 'color')
   return <DefaultText style={[{ color }, style]} {...otherProps} />
 }
 
-export function View(props) {
+export function ThemedView(props) {
   const { style, lightColor, darkColor, ...otherProps } = props
   const backgroundColor = useThemeColor(
     { light: lightColor, dark: darkColor },
     "background"
   )
-console.log(backgroundColor, 'bg color')
   return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />
 }

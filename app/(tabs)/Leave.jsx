@@ -1,11 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+import { Structure } from '../../components'
 
 const Leave = () => {
   return (
-    <View>
+    <Structure>
       <Text>Leave</Text>
-    </View>
+    </Structure>
   )
 }
 

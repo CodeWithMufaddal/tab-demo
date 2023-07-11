@@ -1,76 +1,81 @@
-import React from 'react';
-import { StyleSheet } from 'react-native';
+import React from "react"
+import { StyleSheet } from "react-native"
 
-import Colors from '../constants/Colors';
-import { ExternalLink } from './ExternalLink';
-import { MonoText } from './StyledText';
-import { Text, View } from './Themed';
+import Colors from "../constants/Colors"
+import { ExternalLink } from "./ExternalLink"
+import { ThemedText, ThemedView } from "./Themed"
 
-export default function EditScreenInfo({ path }: { path: string }) {
+export default function EditScreenInfo({ path }) {
   return (
-    <View>
-      <View style={styles.getStartedContainer}>
-        <Text
-          style={styles.getStartedText}
+    <ThemedView>
+      <ThemedView style={styles.getStartedContainer}>
+        <ThemedText
+          style={styles.getStartedThemedText}
           lightColor="rgba(0,0,0,0.8)"
-          darkColor="rgba(255,255,255,0.8)">
+          darkColor="rgba(255,255,255,0.8)"
+        >
           Open up the code for this screen:
-        </Text>
+        </ThemedText>
 
-        <View
+        <ThemedView
           style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
           darkColor="rgba(255,255,255,0.05)"
-          lightColor="rgba(0,0,0,0.05)">
-          <MonoText>{path}</MonoText>
-        </View>
+          lightColor="rgba(0,0,0,0.05)"
+        >
+          <ThemedText>{path}</ThemedText>
+        </ThemedView>
 
-        <Text
-          style={styles.getStartedText}
+        <ThemedText
+          style={styles.getStartedThemedText}
           lightColor="rgba(0,0,0,0.8)"
-          darkColor="rgba(255,255,255,0.8)">
-          Change any of the text, save the file, and your app will automatically update.
-        </Text>
-      </View>
+          darkColor="rgba(255,255,255,0.8)"
+        >
+          Change any of the ThemedText, save the file, and your app will automatically
+          update.
+        </ThemedText>
+      </ThemedView>
 
-      <View style={styles.helpContainer}>
+      <ThemedView style={styles.helpContainer}>
         <ExternalLink
           style={styles.helpLink}
-          href="https://docs.expo.io/get-started/create-a-new-app/#opening-the-app-on-your-phonetablet">
-          <Text style={styles.helpLinkText} lightColor={Colors.light.tint}>
-            Tap here if your app doesn't automatically update after making changes
-          </Text>
+          href="https://docs.expo.io/get-started/create-a-new-app/#opening-the-app-on-your-phonetablet"
+        >
+          <ThemedText style={styles.helpLinkThemedText} lightColor={Colors.light.tint}>
+            Tap here if your app doesn't automatically update after making
+            changes
+          </ThemedText>
         </ExternalLink>
-      </View>
-    </View>
-  );
+      </ThemedView>
+    </ThemedView>
+  )
 }
 
 const styles = StyleSheet.create({
   getStartedContainer: {
-    alignItems: 'center',
-    marginHorizontal: 50,
+    alignItems: "center",
+    marginHorizontal: 50
   },
   homeScreenFilename: {
-    marginVertical: 7,
+    marginVertical: 7
   },
   codeHighlightContainer: {
     borderRadius: 3,
-    paddingHorizontal: 4,
+    paddingHorizontal: 4
   },
-  getStartedText: {
+  getStartedThemedText: {
     fontSize: 17,
     lineHeight: 24,
-    textAlign: 'center',
+    textAlign: "center"
   },
   helpContainer: {
     marginTop: 15,
     marginHorizontal: 20,
-    alignItems: 'center',
+    alignItems: "center"
   },
   helpLink: {
-    paddingVertical: 15,
+    paddingVertical: 15
   },
-  helpLinkText: {
-    textAlign: 'center',
-  },
-});
+  helpLinkThemedText: {
+    textAlign: "center"
+  }
+})

@@ -67,39 +67,7 @@ const styles = StyleSheet.create({
     fontSize: 13
   },
 
-  Button: {
-    small: {
-  // color: COLORS.lightWhite,
-      fontFamily: FONT.regular,
-      display: "flex",
-      borderWidth: 1,
-      borderColor: COLORS.lightWhite,
-      borderRadius: SIZES.xxxLarge,
-      paddingVertical: SIZES.small / 2,
-      paddingHorizontal: SIZES.small,
-      fontSize: 12,
-    },
-    medium: {
-  // color: COLORS.lightWhite,
-      fontFamily: FONT.medium,
-      borderWidth: 1,
-      borderColor: COLORS.lightWhite,
-      borderRadius: SIZES.xxxLarge,
-      paddingVertical: SIZES.medium / 3,
-      paddingHorizontal: SIZES.medium / 2,
-      fontSize: 13,
-    },
-    large: {
-  // color: COLORS.lightWhite,
-      fontFamily: FONT.medium,
-      borderWidth: 1,
-      borderColor: COLORS.lightWhite,
-      borderRadius: SIZES.xxxLarge,
-      paddingVertical: SIZES.large / 3,
-      paddingHorizontal: SIZES.large / 2,
-      fontSize: 14,
-    },
-  },
+
 
   scanButton:{
     marginLeft: "auto",
@@ -176,24 +144,7 @@ const styles = StyleSheet.create({
     marginBottom: 4
   },
 
-  transparent: {
-    button: {
-      // background-color: rgba(255, 255, 255, .15);  
-      // backdrop-filter: blur(5px);
-      small: {
-        backgroundColor: "rgba(255, 255, 255, .15)",
-        backdropFilter: "blur(5px)",
-        borderRadius: SIZES.xxxLarge,
-        paddingVertical: SIZES.small,
-        alignItems: "center",
-      }
-    },
-    container: {
-      backgroundColor: "rgba(255, 255, 255, .2)",
-      backdropFilter: "blur(5px)",
-      borderRadius: 4,
-    }
-  }
+
 
 });
 

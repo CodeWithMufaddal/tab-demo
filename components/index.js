@@ -1,12 +1,17 @@
 import ScreenHeaderBtn from "./common/header/ScreenHeaderBtn";
+import NoteCard from "./common/NoteCard/NoteCard";
 import Welcome from "./home/welcome/welcome";
+import Structure from "./Structure";
 import MonoText from "./StyledText";
-import Themed from "./Themed";
+import { ThemedText, ThemedView } from "./Themed";
 
 
 export {
   ScreenHeaderBtn,
+  NoteCard,
   Welcome,
+  Structure,
   MonoText,
-  Themed,
+  ThemedText,
+  ThemedView,
 };

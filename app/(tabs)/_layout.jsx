@@ -1,19 +1,14 @@
-import FontAwesome from "@expo/vector-icons/FontAwesome"
-import { Link, Tabs } from "expo-router"
-import { Image, Pressable, View, useColorScheme } from "react-native"
+import { Tabs } from "expo-router"
+import { useColorScheme } from "react-native"
 import Colors from "../../constants/Colors"
 import styles from "../../style/tab.style"
-import { Text } from "../../components/Themed"
-/**
- * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
- */
-function TabBarIcon(props) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />
-}
+import { useState } from "react"
+import TabButton from "../../utils/TabButton"
+
 
 export default function TabLayout() {
   const colorScheme = useColorScheme()
-
+  const [activeTab, setActiveTab] = useState('index')
 
   return (
     <Tabs
@@ -28,104 +23,65 @@ export default function TabLayout() {
     >
       <Tabs.Screen
         name="index"
-        options={{
+        options={({ route, navigation }) => ({
           headerShown: false,
           title: "HOME",
           tabBarIconStyle: { display: "none" },
-          tabBarLabelStyle: styles.Tabs,
-          // tabBarInactiveBackgroundColor: "white",
+          // tabBarLabelStyle: styles.TabsContainer,
           tabBarInactiveTintColor: "white",
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? "light"].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          )
-        }}
+          tabBarButton: () => <TabButton routeName={route.name} navigation={navigation} activeTab={activeTab} setActiveTab={setActiveTab} />,
+        })}
       />
 
       <Tabs.Screen
         name="DayOff"
-        options={{
+        options={({ route, navigation }) => ({
           headerShown: false,
-
           title: "DAY OFF",
           tabBarIconStyle: { display: "none" },
-          tabBarLabelStyle: styles.Tabs,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? "light"].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          )
-        }}
+          // tabBarLabelStyle: styles.Tabs,
+          tabBarButton: () => <TabButton routeName={route.name} navigation={navigation} activeTab={activeTab} setActiveTab={setActiveTab} />,
+        })}
       />
       <Tabs.Screen
         name="WFH"
-        options={{
+        options={({ route, navigation }) => ({
           headerShown: false,
-
           title: "WFH",
           tabBarIconStyle: { display: "none" },
-          tabBarLabelStyle: styles.Tabs,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? "light"].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          )
-        }}
+          // tabBarLabelStyle: styles.Tabs,
+          tabBarButton: () => <TabButton routeName={route.name} navigation={navigation} activeTab={activeTab} setActiveTab={setActiveTab} />,
+        })}
       />
 
       <Tabs.Screen
         name="Leave"
-        options={{
+        options={({ route, navigation }) => ({
           headerShown: false,
-
           title: "LEAVE",
           tabBarIconStyle: { display: "none" },
-          // tabBarLabelPosition: "beside-icon",
-          // tabBarAccessibilityLabel: "Accessibility"
-          tabBarLabelStyle: styles.Tabs,
-
-        }}
+          tabBarButton: () => <TabButton routeName={route.name} navigation={navigation} activeTab={activeTab} setActiveTab={setActiveTab} />,
+        })}
       />
+
       <Tabs.Screen
         name="Notification"
-        options={{
+        options={({ route }) => ({
           headerShown: false,
           href: null,
           title: "Notification",
           tabBarIconStyle: { display: "none" },
-          // tabBarLabelPosition: "beside-icon",
-          // tabBarAccessibilityLabel: "Accessibility"
-          tabBarLabelStyle: styles.Tabs,
-
-        }}
+          // tabBarButton: () =>,
+        })}
+      />
+      <Tabs.Screen
+        name="Achievement"
+        options={({ route }) => ({
+          headerShown: false,
+          href: null,
+          title: "Achievement",
+          tabBarIconStyle: { display: "none" },
+        })}
       />
     </Tabs>
   )

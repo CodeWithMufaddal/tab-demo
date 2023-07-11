@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import {  TextInput, TouchableOpacity, Image, FlatList, Text, View } from 'react-native'
+import { TextInput, TouchableOpacity, Image, FlatList, Text, View } from 'react-native'
 import { useRouter } from 'expo-router';
 import styles from './welcome.style'
 import { COLORS, icons, SIZES } from '../../../constants';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Text as ThemeText , View as ThemeView } from '../../Themed';
-// import { Text, View } from './Themed';
+import { ThemedText } from '../../Themed';
+import GlobStyles from '../../../style/index.style';
 
 
 const welcome = ({ handleClick }) => {
@@ -39,7 +39,7 @@ const welcome = ({ handleClick }) => {
   return (
     <View>
       <View style={styles.container}>
-        <ThemeText style={styles.userName}>Welcome Mufaddal</ThemeText>
+        <ThemedText style={styles.userName}>Welcome Mufaddal</ThemedText>
       </View>
 
       <View style={styles.tabsContainer}>
@@ -49,8 +49,8 @@ const welcome = ({ handleClick }) => {
             <TouchableOpacity
               style={styles.tab(activeJobType, item.color)}
             >
-              <ThemeText style={styles.tabText(activeJobType, item)}>{item.val}</ThemeText>
-              <ThemeText style={styles.tabDeskText(activeJobType, item)}>{item.desc}</ThemeText>
+              <ThemedText style={styles.tabText(activeJobType, item)}>{item.val}</ThemedText>
+              <ThemedText style={styles.tabDeskText(activeJobType, item)}>{item.desc}</ThemedText>
             </TouchableOpacity>
           )}
           keyExtractor={(item, index) => index}
@@ -65,36 +65,36 @@ const welcome = ({ handleClick }) => {
 
       <View style={styles.container}>
         <View style={styles.header}>
-          <ThemeText style={styles.scanTabText}>Today Scan Report</ThemeText>
+          <ThemedText style={styles.scanTabText}>Today Scan Report</ThemedText>
           <TouchableOpacity>
-            <ThemeText style={styles.Button.small}>View More</ThemeText>
+            <ThemedText style={GlobStyles.Button.small}>View More</ThemedText>
           </TouchableOpacity>
         </View>
 
         <View style={styles.scanReportContainer}>
           <View style={styles.scanInTime}>
-            <ThemeText style={styles.scanReportText}>In Time</ThemeText>
-            <View style={[styles.transparent.button.small, styles.scanReportButton]}>
-              <ThemeText style={styles.tabDeskText()}>10:56 AM</ThemeText>
+            <ThemedText style={styles.scanReportText}>In Time</ThemedText>
+            <View style={[GlobStyles.transparent.button.small, styles.scanReportButton]}>
+              <ThemedText style={styles.tabDeskText()}>10:56 AM</ThemedText>
             </View>
           </View>
           <View style={styles.scanInTime}>
-            <ThemeText style={styles.scanReportText}>Out Time</ThemeText>
-            <View style={[styles.transparent.button.small, styles.scanReportButton]}>
-              <ThemeText style={styles.tabDeskText()}>10:56 AM</ThemeText>
+            <ThemedText style={styles.scanReportText}>Out Time</ThemedText>
+            <View style={[GlobStyles.transparent.button.small, styles.scanReportButton]}>
+              <ThemedText style={styles.tabDeskText()}>10:56 AM</ThemedText>
             </View>
           </View>
           <View style={styles.scanInTime}>
-            <ThemeText style={styles.scanReportText}>Duration</ThemeText>
-            <View style={[styles.transparent.button.small, styles.scanReportButton]}>
-              <ThemeText style={styles.tabDeskText()}>10:56 AM</ThemeText>
+            <ThemedText style={styles.scanReportText}>Duration</ThemedText>
+            <View style={[GlobStyles.transparent.button.small, styles.scanReportButton]}>
+              <ThemedText style={styles.tabDeskText()}>10:56 AM</ThemedText>
             </View>
           </View>
         </View>
 
-        <LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} locations={[0, 1]} colors={['red', 'orange']} style={[styles.scanButton, styles.Button.small]}>
+        <LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} locations={[0, 1]} colors={['red', 'orange']} style={[styles.scanButton, GlobStyles.Button.small]}>
           <TouchableOpacity style={styles.scanTab} >
-            <ThemeText style={styles.tabText()}>Scan Now</ThemeText>
+            <ThemedText style={styles.tabText()}>Scan Now</ThemedText>
           </TouchableOpacity>
         </LinearGradient>
 
@@ -104,24 +104,24 @@ const welcome = ({ handleClick }) => {
 
       <View style={styles.container}>
         <View style={styles.header}>
-          <ThemeText style={styles.scanTabText}>Latest Notification</ThemeText>
+          <ThemedText style={styles.scanTabText}>Latest Notification</ThemedText>
           <TouchableOpacity>
-            <ThemeText style={styles.Button.small}>View More</ThemeText>
+            <ThemedText style={GlobStyles.Button.small}>View More</ThemedText>
           </TouchableOpacity>
         </View>
 
 
-        <View style={[styles.transparent.container, styles.notificationContainer]}>
+        <View style={[GlobStyles.transparent.container, styles.notificationContainer]}>
           <View >
-            <ThemeText style={styles.notificationText}>Greetings to all.</ThemeText>
-            <ThemeText style={styles.notificationText} numberOfLines={1}>We will be working from home on June 14 due to palkhi.\nDo not forget to send email while logging in and out. </ThemeText>
+            <ThemedText style={styles.notificationText}>Greetings to all.</ThemedText>
+            <ThemedText style={styles.notificationText} numberOfLines={1}>We will be working from home on June 14 due to palkhi.\nDo not forget to send email while logging in and out. </ThemedText>
           </View>
 
           <View style={styles.notificationBottomContainer}>
             <TouchableOpacity>
-              <ThemeText style={styles.Button.small}>View More</ThemeText>
+              <ThemedText style={GlobStyles.Button.small}>View More</ThemedText>
             </TouchableOpacity>
-            <ThemeText style={styles.notificationDateTime}>13 Jun 2023 | 01:11 PM</ThemeText>
+            <ThemedText style={styles.notificationDateTime}>13 Jun 2023 | 01:11 PM</ThemedText>
           </View>
         </View>
       </View>
@@ -130,9 +130,9 @@ const welcome = ({ handleClick }) => {
 
       <View style={styles.container}>
         <View style={styles.header}>
-          <ThemeText style={styles.scanTabText}>Checkout Our Latest Insta Posts</ThemeText>
+          <ThemedText style={styles.scanTabText}>Checkout Our Latest Insta Posts</ThemedText>
           <TouchableOpacity>
-            <ThemeText style={styles.Button.small}>View More</ThemeText>
+            <ThemedText style={GlobStyles.Button.small}>View More</ThemedText>
           </TouchableOpacity>
         </View>
       </View>

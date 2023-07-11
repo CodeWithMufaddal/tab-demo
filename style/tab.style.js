@@ -7,15 +7,19 @@ const styles = StyleSheet.create({
     },
 
     TabContainer: {
-        height: 100,
+        height: 80,
         backgroundColor: "transparent",
+        display: "flex",
+        alignItems: "center",
+
         position: 'absolute',
         borderTopWidth: 0,
         elevation: 0,
     },
 
     Tabs: {
-        marginBottom: "auto", marginTop: "auto", marginLeft: "auto", marginRight: "auto",
+        // marginBottom: "auto", marginTop: "auto", marginLeft: "auto", marginRight: "auto",
+        marginHorizontal: SIZES.xSmall,
         fontSize: 14,
         borderRadius: 40,
         borderWidth: 1,
@@ -27,7 +31,7 @@ const styles = StyleSheet.create({
     backgroundImage: {
         flex: 1,
         color: COLORS.lightWhite,
-        backgroundColor: "red"  ,
+        backgroundColor: "red",
         resizeMode: 'cover',
         justifyContent: 'center',
     },

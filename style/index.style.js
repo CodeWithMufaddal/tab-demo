@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
-import { COLORS, SIZES, images } from "../constants";
+import { COLORS, FONT, SIZES, images } from "../constants";
 
-const styles = StyleSheet.create({
+const GlobStyles = StyleSheet.create({
     linearGradient: {
         flex: 1,
     },
@@ -29,7 +29,60 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginRight: SIZES.xSmall
     },
-   
+    // Transparent Background
+    transparent: {
+        button: {
+            // background-color: rgba(255, 255, 255, .15);  
+            // backdrop-filter: blur(5px);
+            small: {
+                backgroundColor: "rgba(255, 255, 255, .15)",
+                backdropFilter: "blur(5px)",
+                borderRadius: SIZES.xxxLarge,
+                paddingVertical: SIZES.small,
+                alignItems: "center",
+            }
+        },
+        container: {
+            backgroundColor: "rgba(255, 255, 255, .2)",
+            backdropFilter: "blur(5px)",
+            borderRadius: 4,
+        }
+    },
+// Globle Button
+    Button: {
+        small: {
+      // color: COLORS.lightWhite,
+          fontFamily: FONT.regular,
+          display: "flex",
+          borderWidth: 1,
+          borderColor: COLORS.lightWhite,
+          borderRadius: SIZES.xxxLarge,
+          paddingVertical: SIZES.small / 2,
+          paddingHorizontal: SIZES.small,
+          fontSize: 12,
+        },
+        medium: {
+      // color: COLORS.lightWhite,
+          fontFamily: FONT.medium,
+          borderWidth: 1,
+          borderColor: COLORS.lightWhite,
+          borderRadius: SIZES.xxxLarge,
+          paddingVertical: SIZES.medium / 3,
+          paddingHorizontal: SIZES.medium / 2,
+          fontSize: 13,
+        },
+        large: {
+      // color: COLORS.lightWhite,
+          fontFamily: FONT.medium,
+          borderWidth: 1,
+          borderColor: COLORS.lightWhite,
+          borderRadius: SIZES.xxxLarge,
+          paddingVertical: SIZES.large / 3,
+          paddingHorizontal: SIZES.large / 2,
+          fontSize: 14,
+        },
+      },
+
 });
 
-export default styles;
+export default GlobStyles;

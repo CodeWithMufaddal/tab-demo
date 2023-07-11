@@ -1,11 +1,12 @@
-import { View, Text } from 'react-native'
 import React from 'react'
+import { Structure } from '../../components'
+import { ThemedText } from '../../components/Themed'
 
 const WFH = () => {
   return (
-    <View>
-      <Text>WFH</Text>
-    </View>
+    <Structure>
+      <ThemedText>WFH</ThemedText>
+    </Structure>
   )
 }
 

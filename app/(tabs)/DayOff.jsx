@@ -1,11 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+import { Structure, ThemedText } from '../../components'
 
 const DayOff = () => {
   return (
-    <View>
-      <Text>DayOff</Text>
-    </View>
+    <Structure>
+      <ThemedText>DayOff</ThemedText>
+    </Structure>
   )
 }
 
