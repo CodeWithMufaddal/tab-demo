@@ -1,6 +1,6 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Link, Stack, useRouter } from 'expo-router';
+import { Link, Redirect, Stack, useGlobalSearchParams, useLocalSearchParams, usePathname, useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Image, ImageBackground, Platform, SafeAreaView, View, useColorScheme } from 'react-native';
 import { icons, images } from '../constants';
@@ -11,8 +11,9 @@ import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 import Entypo from '@expo/vector-icons/Entypo';
 import { StatusBar } from 'expo-status-bar';
-import { ScreenHeaderBtn } from '../components';
+import { Manu, ScreenHeaderBtn, ThemedText } from '../components';
 import { Pressable } from 'react-native';
+import Modal from 'react-native-modal';
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -30,7 +31,6 @@ export const unstable_settings = {
 export default function RootLayoutNav() {
   const colorScheme = useColorScheme();
   const router = useRouter();
-
   const [appIsReady, setAppIsReady] = useState(false);
 
   useEffect(() => {
@@ -81,15 +81,13 @@ export default function RootLayoutNav() {
             name="(tabs)"
             options={{
               headerLeft: () => (
-                <Link href="/" asChild>
-                  <Pressable >
-                    <Image
-                      source={icons.logo}
-                      style={styles.logo}
-                      resizeMode="contain"
-                    />
-                  </Pressable>
-                </Link>
+                <Pressable onPress={() => router.replace("/")}>
+                  <Image
+                    source={icons.logo}
+                    style={styles.logo}
+                    resizeMode="contain"
+                  />
+                </Pressable>
               ),
               headerRight: () => (
                 <View style={{ flexDirection: 'row', }}>
@@ -101,9 +99,26 @@ export default function RootLayoutNav() {
               headerTitle: ""
             }}
           />
-
-
-          <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+          <Stack.Screen
+            name="modal"
+            options={{
+              presentation: 'modal',
+              headerLeft: () => (
+                <Pressable onPress={() => router.replace("/")}>
+                  <Image
+                    source={icons.logo}
+                    style={styles.logo}
+                    resizeMode="contain"
+                  />
+                </Pressable>
+              ),
+              headerRight: () => (
+                <View style={{ flexDirection: 'row', }}>
+                  <ScreenHeaderBtn iconUrl={icons.close_menu} dimension="70%" handleNavigation={() => router.push("/")} />
+                </View>
+              ),
+              headerTitle: ""
+            }} />
         </Stack>
         <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
       </ThemeProvider>

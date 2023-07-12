@@ -1,38 +1,85 @@
 import { StatusBar } from "expo-status-bar"
-import {  StyleSheet } from "react-native"
+import { Pressable, StyleSheet } from "react-native"
 
 import EditScreenInfo from "../components/EditScreenInfo"
-import { ThemedText, ThemedView } from "../components"
+import { Structure, ThemedText, ThemedView } from "../components"
+import { View } from "react-native"
+import { router } from "expo-router"
+import GlobStyles from "../style/index.style"
+import { FONT, SIZES } from "../constants"
 
 export default function ModalScreen() {
+  const data = [
+    {
+      name: "Update Profile",
+      route: "/UpdateProfile",
+    },
+    {
+      name: "Terms and Conditions",
+      route: "/terms-and-conditions",
+    },
+    {
+      name: "Rate This App",
+      route: "/RateApp",
+    },
+    {
+      name: "FeedBack",
+      route: "/FeedBack",
+    },
+    {
+      name: "Request Invoice",
+      route: "/RequestInvoice",
+    },
+    {
+      name: "Meeting",
+      route: "/meeting",
+    },
+    {
+      name: "Log Out",
+      route: "/logout",
+    },
+  ]
   return (
-    <ThemedView style={styles.container}>
-      <ThemedText style={styles.title}>Modal</ThemedText>
-      <ThemedView
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-      <EditScreenInfo path="app/modal.jsx" />
-
-      {/* Use a light status bar on iOS to account for the black space above the modal */}
-    </ThemedView>
+    <Structure style={styles.container}>
+      <View style={styles.manuBox}>
+        {
+          data.map(({ name, route }, index) => {
+            return (
+              <Pressable key={index} onPress={() => router.push(route)} style={[GlobStyles.transparent.button.small, styles.modalTabs]}>
+                <ThemedText style={styles.manuText}>{name}</ThemedText>
+              </Pressable>
+            )
+          })
+        }
+      </View>
+    </Structure>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    marginRight: "auto",
+    marginLeft: "auto",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold"
+  manuBox: {
+    marginTop: 100,
+    flex: 1,
+    width: "75%",
+    marginRight: "auto",
+    marginLeft: "auto",
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%"
+  manuText: {
+    marginRight: "auto",
+    marginLeft: "auto",
+    fontFamily: FONT.medium
+
+  },
+  modalTabs: {
+    display: "flex",
+    flexDirection: "row",
+    marginVertical: 13,
+    paddingVertical: SIZES.small,
   }
 })

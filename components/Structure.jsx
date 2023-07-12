@@ -7,12 +7,12 @@ import { SafeAreaView } from 'react-native';
 import { images } from '../constants';
 import styles from '../style/tab.style';
 
-const Structure = ({ children }) => {
+const Structure = ({ children, style }) => {
     return (
-        <ImageBackground source={images.bgHome} style={styles.backgroundImage}>
+        <ImageBackground source={images.bgHome} style={[styles.backgroundImage]}>
             <LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} locations={[0, 1]} colors={['rgba(0,0,0,1)', 'transparent']} style={styles.linearGradient}>
                 <SafeAreaView style={styles.safeAreaView}>
-                    <ScrollView showsVerticalScrollIndicator={false} style={{ marginTop: 110, marginBottom: 100 }}>
+                    <ScrollView showsVerticalScrollIndicator={false} style={{ marginTop: 110, marginBottom: 90 }}>
                         {children}
                     </ScrollView>
                 </SafeAreaView>

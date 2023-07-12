@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { TextInput, TouchableOpacity, Image, FlatList, Text, View } from 'react-native'
+import { TextInput, TouchableOpacity, Image, FlatList, Text, View, Pressable, Linking } from 'react-native'
 import { useRouter } from 'expo-router';
 import styles from './welcome.style'
 import { COLORS, icons, SIZES } from '../../../constants';
 import { LinearGradient } from 'expo-linear-gradient';
 import { ThemedText } from '../../Themed';
 import GlobStyles from '../../../style/index.style';
+import NoteCard from '../../common/NoteCard/NoteCard';
 
 
 const welcome = ({ handleClick }) => {
@@ -36,6 +37,12 @@ const welcome = ({ handleClick }) => {
       desc: "PL",
       color: "#408E40",
     }];
+
+  let notification = [
+    {
+      note: "Greetings to all. We will be working from home on June 14 due to palkhi. Do not forget to send email while logging in and out.",
+      time: "2023-06-13"
+    }]
   return (
     <View>
       <View style={styles.container}>
@@ -46,12 +53,10 @@ const welcome = ({ handleClick }) => {
         <FlatList
           data={userInfo}
           renderItem={({ item }) => (
-            <TouchableOpacity
-              style={styles.tab(activeJobType, item.color)}
-            >
-              <ThemedText style={styles.tabText(activeJobType, item)}>{item.val}</ThemedText>
-              <ThemedText style={styles.tabDeskText(activeJobType, item)}>{item.desc}</ThemedText>
-            </TouchableOpacity>
+            <View style={styles.tab(activeJobType, item.color)}>
+              <ThemedText style={styles.tabText}>{item.val}</ThemedText>
+              <ThemedText style={styles.tabDeskText}>{item.desc}</ThemedText>
+            </View>
           )}
           keyExtractor={(item, index) => index}
           contentContainerStyle={{ columnGap: SIZES.small }}
@@ -66,35 +71,35 @@ const welcome = ({ handleClick }) => {
       <View style={styles.container}>
         <View style={styles.header}>
           <ThemedText style={styles.scanTabText}>Today Scan Report</ThemedText>
-          <TouchableOpacity>
+          <Pressable onPress={()=> router.push("ScanReport")}>
             <ThemedText style={GlobStyles.Button.small}>View More</ThemedText>
-          </TouchableOpacity>
+          </Pressable>
         </View>
 
         <View style={styles.scanReportContainer}>
           <View style={styles.scanInTime}>
             <ThemedText style={styles.scanReportText}>In Time</ThemedText>
             <View style={[GlobStyles.transparent.button.small, styles.scanReportButton]}>
-              <ThemedText style={styles.tabDeskText()}>10:56 AM</ThemedText>
+              <ThemedText style={styles.tabDeskText}>10:56 AM</ThemedText>
             </View>
           </View>
           <View style={styles.scanInTime}>
             <ThemedText style={styles.scanReportText}>Out Time</ThemedText>
             <View style={[GlobStyles.transparent.button.small, styles.scanReportButton]}>
-              <ThemedText style={styles.tabDeskText()}>10:56 AM</ThemedText>
+              <ThemedText style={styles.tabDeskText}>10:56 AM</ThemedText>
             </View>
           </View>
           <View style={styles.scanInTime}>
             <ThemedText style={styles.scanReportText}>Duration</ThemedText>
             <View style={[GlobStyles.transparent.button.small, styles.scanReportButton]}>
-              <ThemedText style={styles.tabDeskText()}>10:56 AM</ThemedText>
+              <ThemedText style={styles.tabDeskText}>10:56 AM</ThemedText>
             </View>
           </View>
         </View>
 
         <LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} locations={[0, 1]} colors={['red', 'orange']} style={[styles.scanButton, GlobStyles.Button.small]}>
           <TouchableOpacity style={styles.scanTab} >
-            <ThemedText style={styles.tabText()}>Scan Now</ThemedText>
+            <ThemedText style={styles.tabText}>Scan Now</ThemedText>
           </TouchableOpacity>
         </LinearGradient>
 
@@ -105,25 +110,12 @@ const welcome = ({ handleClick }) => {
       <View style={styles.container}>
         <View style={styles.header}>
           <ThemedText style={styles.scanTabText}>Latest Notification</ThemedText>
-          <TouchableOpacity>
+          <Pressable onPress={() => router.push("/Notification")}>
             <ThemedText style={GlobStyles.Button.small}>View More</ThemedText>
-          </TouchableOpacity>
+          </Pressable>
         </View>
 
-
-        <View style={[GlobStyles.transparent.container, styles.notificationContainer]}>
-          <View >
-            <ThemedText style={styles.notificationText}>Greetings to all.</ThemedText>
-            <ThemedText style={styles.notificationText} numberOfLines={1}>We will be working from home on June 14 due to palkhi.\nDo not forget to send email while logging in and out. </ThemedText>
-          </View>
-
-          <View style={styles.notificationBottomContainer}>
-            <TouchableOpacity>
-              <ThemedText style={GlobStyles.Button.small}>View More</ThemedText>
-            </TouchableOpacity>
-            <ThemedText style={styles.notificationDateTime}>13 Jun 2023 | 01:11 PM</ThemedText>
-          </View>
-        </View>
+        <NoteCard note={notification[0].note} time={new Date(notification[0].time).toDateString() + " | " + new Date(notification[0].time).toLocaleTimeString()} />
       </View>
 
       <View style={styles.hrLine} />
@@ -131,9 +123,9 @@ const welcome = ({ handleClick }) => {
       <View style={styles.container}>
         <View style={styles.header}>
           <ThemedText style={styles.scanTabText}>Checkout Our Latest Insta Posts</ThemedText>
-          <TouchableOpacity>
+          <Pressable onPress={() => Linking.openURL(`https://www.instagram.com/hatsoffdigital`)}>
             <ThemedText style={GlobStyles.Button.small}>View More</ThemedText>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </View>
 

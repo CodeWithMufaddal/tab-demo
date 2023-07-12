@@ -5,7 +5,9 @@ const GlobStyles = StyleSheet.create({
     linearGradient: {
         flex: 1,
     },
-
+    spaceHorizontal: {
+        marginHorizontal: SIZES.large
+    },
     backgroundImage: {
         flex: 1,
         // color: COLORS.lightWhite,
@@ -35,10 +37,9 @@ const GlobStyles = StyleSheet.create({
             // background-color: rgba(255, 255, 255, .15);  
             // backdrop-filter: blur(5px);
             small: {
-                backgroundColor: "rgba(255, 255, 255, .15)",
+                backgroundColor: "rgba(255, 255, 255, .1)",
                 backdropFilter: "blur(5px)",
                 borderRadius: SIZES.xxxLarge,
-                paddingVertical: SIZES.small,
                 alignItems: "center",
             }
         },
@@ -48,40 +49,36 @@ const GlobStyles = StyleSheet.create({
             borderRadius: 4,
         }
     },
-// Globle Button
+    // Globle Button
     Button: {
         small: {
-      // color: COLORS.lightWhite,
-          fontFamily: FONT.regular,
-          display: "flex",
-          borderWidth: 1,
-          borderColor: COLORS.lightWhite,
-          borderRadius: SIZES.xxxLarge,
-          paddingVertical: SIZES.small / 2,
-          paddingHorizontal: SIZES.small,
-          fontSize: 12,
+            // color: COLORS.lightWhite,
+            fontFamily: FONT.regular,
+            display: "flex",
+            borderWidth: 1,
+            borderColor: COLORS.lightWhite,
+            borderRadius: SIZES.xxxLarge,
+            paddingVertical: SIZES.small / 2,
+            paddingHorizontal: SIZES.small,
+            fontSize: 12,
         },
         medium: {
-      // color: COLORS.lightWhite,
-          fontFamily: FONT.medium,
-          borderWidth: 1,
-          borderColor: COLORS.lightWhite,
-          borderRadius: SIZES.xxxLarge,
-          paddingVertical: SIZES.medium / 3,
-          paddingHorizontal: SIZES.medium / 2,
-          fontSize: 13,
+            // fontFamily: FONT.medium,
+            borderWidth: 1,
+            borderColor: COLORS.lightWhite,
+            borderRadius: SIZES.xxxLarge,
         },
         large: {
-      // color: COLORS.lightWhite,
-          fontFamily: FONT.medium,
-          borderWidth: 1,
-          borderColor: COLORS.lightWhite,
-          borderRadius: SIZES.xxxLarge,
-          paddingVertical: SIZES.large / 3,
-          paddingHorizontal: SIZES.large / 2,
-          fontSize: 14,
+            // color: COLORS.lightWhite,
+            fontFamily: FONT.medium,
+            borderWidth: 1,
+            borderColor: COLORS.lightWhite,
+            borderRadius: SIZES.xxxLarge,
+            paddingVertical: SIZES.large / 3,
+            paddingHorizontal: SIZES.large / 2,
+            fontSize: 14,
         },
-      },
+    },
 
 });
 

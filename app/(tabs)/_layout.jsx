@@ -12,6 +12,7 @@ export default function TabLayout() {
 
   return (
     <Tabs
+    initialRouteName="/ScanReport"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
         translucency: false,
@@ -80,6 +81,15 @@ export default function TabLayout() {
           headerShown: false,
           href: null,
           title: "Achievement",
+          tabBarIconStyle: { display: "none" },
+        })}
+      />
+      <Tabs.Screen
+        name="ScanReport"
+        options={({ route }) => ({
+          headerTitle: "",
+          href: null,
+          title: "ScanReport",
           tabBarIconStyle: { display: "none" },
         })}
       />

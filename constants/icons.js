@@ -11,10 +11,12 @@ import chevronRight from '../assets/icons/chevron-right.png'
 import lightbulb from '../assets/icons/lightbulb.png';
 import bell from '../assets/icons/bell.png'
 import logo from '../assets/icons/logo.webp'
+import close_menu from '../assets/icons/close_menu.png';
 
 export default {
     logo,
     lightbulb,
+    close_menu,
     bell,
     menu,
     heart,

@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
   userName: {
     fontFamily: FONT.bold,
     fontSize: SIZES.xMedium,
-// color: COLORS.lightWhite,
+    // color: COLORS.lightWhite,
     marginHorizontal: SIZES.large,
 
   },
@@ -42,22 +42,19 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     backgroundColor: color,
   }),
-  tabText: (activeJobType, item) => ({
+  tabText: {
     fontFamily: FONT.medium,
     fontSize: 13,
-// color: COLORS.lightWhite,
-  }),
+  },
 
   scanTabText: {
     fontFamily: FONT.medium,
     fontSize: 15,
-// color: COLORS.lightWhite,
   },
-  tabDeskText: (activeJobType, item) => ({
+  tabDeskText: {
     fontFamily: FONT.medium,
     fontSize: 12,
-// color: COLORS.lightWhite,
-  }),
+  },
 
   header: {
     flexDirection: "row",
@@ -69,7 +66,7 @@ const styles = StyleSheet.create({
 
 
 
-  scanButton:{
+  scanButton: {
     marginLeft: "auto",
     marginRight: "auto",
     marginVertical: 4,
@@ -88,13 +85,12 @@ const styles = StyleSheet.create({
   },
   scanInTime: {
     alignItems: "center",
-    marginVertical: SIZES.xxxSmall,
+    // marginVertical: SIZES.xxxSmall,
     width: "30%",
-    // width: 150,
   },
 
   scanReportText: {
-// color: COLORS.lightWhite,
+    // color: COLORS.lightWhite,
     fontFamily: FONT.medium,
     fontSize: 12
   },
@@ -102,9 +98,12 @@ const styles = StyleSheet.create({
   scanReportButton: {
     width: "100%",
     marginVertical: 7,
+    paddingVertical: SIZES.small,
+
+    alignItems: "center",
   },
 
-  
+
 
   // Notifications
   notificationContainer: {
@@ -122,7 +121,7 @@ const styles = StyleSheet.create({
 
   notificationText: {
     alignItems: "flex-start",
-// color: COLORS.lightWhite,
+    // color: COLORS.lightWhite,
     fontFamily: FONT.regular,
     paddingBottom: SIZES.small
   },
@@ -145,6 +144,35 @@ const styles = StyleSheet.create({
   },
 
 
+  // Scan Report 
+  scanReportHeader: {
+    flexDirection: "row",
+    display: "flex",
+    alignItems: "flex-start",
+    borderWidth: 1,
+    justifyContent: "center",
+    columnGap: SIZES.small,
+    marginHorizontal: SIZES.large,
+  },
+  scanReportScanButton: {
+    marginTop: SIZES.large,
+    marginBottom: SIZES.xxxSmall,
+    paddingVertical: SIZES.small,
+    fontSize: 2,
+    alignItems: "center",
+  },
+
+  scanButtonText: {
+    fontFamily: FONT.bold,
+  },
+  scanReportTimeButton: {
+    width: "100%",
+    paddingVertical: SIZES.xxSmall,
+    marginTop: SIZES.medium
+  },
+  scanReportContainerBox: {
+    width: "30%",
+  },
 
 });
 
