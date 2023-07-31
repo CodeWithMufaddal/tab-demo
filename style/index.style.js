@@ -63,7 +63,7 @@ const GlobStyles = StyleSheet.create({
             fontSize: 12,
         },
         medium: {
-            // fontFamily: FONT.medium,
+            fontFamily: FONT.medium,
             borderWidth: 1,
             borderColor: COLORS.lightWhite,
             borderRadius: SIZES.xxxLarge,

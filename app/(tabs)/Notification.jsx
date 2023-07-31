@@ -41,8 +41,8 @@ const index = () => {
   ]
   return (
     <Structure>
-      <View style={styles.tabsContainer}>
-        {notification && notification.map(({ note, time }, i) => <NoteCard key={i} note={note} time={time} />)}
+      <View>
+        {notification && notification.map(({ note, time }, i) => <NoteCard key={i} numberOfLines={4} note={note} time={time} />)}
       </View>
     </Structure>
   )

@@ -36,6 +36,7 @@ const SIZES = {
   xLarge: 24,
   xxLarge: 32,
   xxxLarge: 38,
+  xxxxLarge: 42,
 };
 
 const SHADOWS = {

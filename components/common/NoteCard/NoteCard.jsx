@@ -8,27 +8,24 @@ import Colors from '../../../constants/Colors'
 import { useColorScheme } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 
-const NoteCard = ({ note, time, i }) => {
+const NoteCard = ({ note, time, i ,numberOfLines}) => {
     const [show, setShow] = useState(false)
     const handleShow = () => setShow(true)
     const handleClose = () => setShow(false)
     return (
         <View style={[GlobStyles.transparent.container, styles.notificationContainer]}>
             <View>
-                <ThemedText style={styles.notificationText} numberOfLines={4}>{note}</ThemedText>
+                <ThemedText style={styles.notificationText} numberOfLines={numberOfLines}>{note}</ThemedText>
             </View>
 
             <View style={styles.notificationBottomContainer}>
                 <Pressable onPress={handleShow}>
-                    <ThemedText style={GlobStyles.Button.small}>View More</ThemedText>
+                    <ThemedText style={[GlobStyles.Button.medium, styles.NotCardButton]}>Read More</ThemedText>
                 </Pressable>
 
                 <Modal
                     isVisible={show}
-                    // coverScreen={false}
                     hasBackdrop={false}
-                // hideModalContentWhileAnimating={true}
-                // style={styles.Modal}
                 >
                     {/* <View style={{ backgroundColor: Colors[useColorScheme() ?? "light"].tint }}> */}
                     <ThemedView style={[styles.Modal, { display: 'flex', alignItems: "center" }]}>

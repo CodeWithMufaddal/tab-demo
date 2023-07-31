@@ -7,13 +7,7 @@ const styles = StyleSheet.create({
     width: "100%",
   },
 
-  userName: {
-    fontFamily: FONT.bold,
-    fontSize: SIZES.xMedium,
-    // color: COLORS.lightWhite,
-    marginHorizontal: SIZES.large,
 
-  },
   // welcomeMessage: {
   //   fontFamily: FONT.bold,
   //   fontSize: SIZES.xLarge,
@@ -21,15 +15,13 @@ const styles = StyleSheet.create({
   //   marginTop: 2,
   // },
   tabsContainer: {
-    width: "100%",
-    marginTop: SIZES.medium
+    marginTop: SIZES.xxxSmall
   },
   hrLine: {
     borderBottomColor: "#A88B61",
     borderBottomWidth: 1,
     marginHorizontal: SIZES.medium,
     marginVertical: SIZES.medium,
-
   },
   tabBox: {
     marginLeft: SIZES.large,
@@ -108,22 +100,23 @@ const styles = StyleSheet.create({
   // Notifications
   notificationContainer: {
     alignItems: "flex-start",
-    justifyContent: "space-between",
+    // justifyContent: "space-between",
+    justifyContent: "center",
     flexDirection: "column",
     display: "flex",
     overflow: "hidden",
     whiteSpace: "nowrap",
-    paddingVertical: SIZES.xxxSmall,
+    paddingVertical: SIZES.xxSmall,
     paddingHorizontal: SIZES.xSmall,
     marginHorizontal: SIZES.large,
-    marginVertical: SIZES.small
+    marginVertical: 5
   },
 
   notificationText: {
     alignItems: "flex-start",
     // color: COLORS.lightWhite,
     fontFamily: FONT.regular,
-    paddingBottom: SIZES.small
+    justifyContent: "center",
   },
 
   notificationDateTime: {
@@ -172,6 +165,23 @@ const styles = StyleSheet.create({
   },
   scanReportContainerBox: {
     width: "30%",
+  },
+
+  // achievement
+  achievementContainer: {
+    alignItems: "flex-start",
+    justifyContent: "center",
+    flexDirection: "column",
+    display: "flex",
+    paddingVertical: SIZES.xxxSmall,
+    paddingHorizontal: SIZES.xSmall,
+    marginVertical: SIZES.xxxSmall
+
+  },
+  achievementText: {
+    fontFamily: FONT.bold,
+    alignItems: "flex-start",
+    fontSize: 14.2,
   },
 
 });

@@ -12,7 +12,7 @@ export default function TabLayout() {
 
   return (
     <Tabs
-    initialRouteName="/ScanReport"
+    initialRouteName="index"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
         translucency: false,
@@ -28,7 +28,6 @@ export default function TabLayout() {
           headerShown: false,
           title: "HOME",
           tabBarIconStyle: { display: "none" },
-          // tabBarLabelStyle: styles.TabsContainer,
           tabBarInactiveTintColor: "white",
           tabBarButton: () => <TabButton routeName={route.name} navigation={navigation} activeTab={activeTab} setActiveTab={setActiveTab} />,
         })}
@@ -80,7 +79,7 @@ export default function TabLayout() {
         options={({ route }) => ({
           headerShown: false,
           href: null,
-          title: "Achievement",
+          title: "",
           tabBarIconStyle: { display: "none" },
         })}
       />
@@ -89,8 +88,9 @@ export default function TabLayout() {
         options={({ route }) => ({
           headerTitle: "",
           href: null,
-          title: "ScanReport",
+          title: "",
           tabBarIconStyle: { display: "none" },
+          
         })}
       />
     </Tabs>

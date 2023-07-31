@@ -1,20 +1,23 @@
 import { StyleSheet } from "react-native";
-import { COLORS, SIZES, images } from "../constants";
+import { COLORS, FONT, SIZES, images } from "../constants";
 
 const styles = StyleSheet.create({
     linearGradient: {
         flex: 1,
     },
-
-    TabContainer: {
-        height: 80,
-        backgroundColor: "transparent",
+    tabsContainer: {
+        position: "relative",
         display: "flex",
-        alignItems: "center",
-
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        alignSelf: 'center',
+    },
+    TabContainer: {
+        backgroundColor: "transparent",
         position: 'absolute',
         borderTopWidth: 0,
         elevation: 0,
+        height: 87,
     },
 
     Tabs: {
@@ -31,7 +34,6 @@ const styles = StyleSheet.create({
     backgroundImage: {
         flex: 1,
         color: COLORS.lightWhite,
-        backgroundColor: "red",
         resizeMode: 'cover',
         justifyContent: 'center',
     },
@@ -45,12 +47,17 @@ const styles = StyleSheet.create({
     },
     logo: {
         width: 100,
-        height: 100,
+        height: 90,
+
         // backgroundColor: COLORS.white,
+        borderColor: "white",
         // borderRadius: SIZES.small / 1.25,
-        justifyContent: "center",
-        alignItems: "center",
-        marginRight: SIZES.xSmall
+        justifyContent: "flex-start",
+        alignItems: "flex-start",
+        marginRight: SIZES.xSmall,
+        marginBottom: 20,
+        position: "relative",
+        bottom: 0
     },
     container: {
         width: 100,
@@ -60,6 +67,16 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         marginRight: SIZES.xSmall
+    },
+    userName: {
+        flex: 1,
+        width: "100%",
+        fontFamily: FONT.bold,
+        fontSize: SIZES.xMedium,
+        position: "absolute",
+        bottom: 9,
+        flexDirection: "row",
+
     },
 });
 

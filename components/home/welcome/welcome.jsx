@@ -45,9 +45,7 @@ const welcome = ({ handleClick }) => {
     }]
   return (
     <View>
-      <View style={styles.container}>
-        <ThemedText style={styles.userName}>Welcome Mufaddal</ThemedText>
-      </View>
+
 
       <View style={styles.tabsContainer}>
         <FlatList
@@ -115,7 +113,7 @@ const welcome = ({ handleClick }) => {
           </Pressable>
         </View>
 
-        <NoteCard note={notification[0].note} time={new Date(notification[0].time).toDateString() + " | " + new Date(notification[0].time).toLocaleTimeString()} />
+        <NoteCard numberOfLines={1} note={notification[0].note} time={new Date(notification[0].time).toDateString() + " | " + new Date(notification[0].time).toLocaleTimeString()} />
       </View>
 
       <View style={styles.hrLine} />

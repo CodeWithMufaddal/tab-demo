@@ -11,16 +11,17 @@ const styles = StyleSheet.create({
         display: "flex",
         overflow: "hidden",
         whiteSpace: "nowrap",
-        paddingVertical: SIZES.xxxSmall,
+        paddingVertical: 7,
         paddingHorizontal: SIZES.xSmall,
         marginHorizontal: SIZES.large,
-        marginVertical: SIZES.small
+        marginVertical: 5
     },
 
     notificationText: {
         alignItems: "flex-start",
         // color: COLORS.lightWhite,
-        fontFamily: FONT.regular,
+        fontFamily: FONT.medium,
+        fontSize: 15,
         paddingBottom: SIZES.small
     },
 
@@ -39,6 +40,13 @@ const styles = StyleSheet.create({
         width: "100%",
         fontSize: 13,
         marginBottom: 4
+    },
+
+    NotCardButton: {
+        borderRadius: SIZES.xxxLarge,
+        paddingVertical: SIZES.medium / 2,
+        paddingHorizontal: SIZES.small,
+
     },
     Modal: {
         // backgroundColor: COLORS.tertiary,

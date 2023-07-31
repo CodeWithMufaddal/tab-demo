@@ -32,7 +32,7 @@ export default function RootLayoutNav() {
   const colorScheme = useColorScheme();
   const router = useRouter();
   const [appIsReady, setAppIsReady] = useState(false);
-
+  const path = usePathname()
   useEffect(() => {
     async function prepare() {
       try {
@@ -78,24 +78,43 @@ export default function RootLayoutNav() {
         >
 
           <Stack.Screen
+            // name="[(tabs),(modal)]"
             name="(tabs)"
+
             options={{
+              headerStyle: styles.tabsContainer,
               headerLeft: () => (
-                <Pressable onPress={() => router.replace("/")}>
-                  <Image
-                    source={icons.logo}
-                    style={styles.logo}
-                    resizeMode="contain"
-                  />
-                </Pressable>
-              ),
-              headerRight: () => (
-                <View style={{ flexDirection: 'row', }}>
-                  <ScreenHeaderBtn iconUrl={icons.lightbulb} dimension="70%" handleNavigation={() => router.push("/Achievement")} />
-                  <ScreenHeaderBtn iconUrl={icons.bell} dimension="70%" handleNavigation={() => router.push("/Notification")} />
-                  <ScreenHeaderBtn iconUrl={icons.menu} dimension="70%" handleNavigation={() => router.push("/modal")} />
+                <View 
+                style={{
+                  position: 'relative',
+                  width: '100%',
+                }}>
+                  <Pressable onPress={() => router.replace("/")}>
+                    <Image
+                      source={icons.logo}
+                      style={styles.logo}
+                      resizeMode="contain"
+                    />
+                  </Pressable>
+                  {path === "/" && <ThemedText style={styles.userName}>Welcome Mufaddal</ThemedText>}
                 </View>
+
               ),
+
+              headerRight: (props) => {
+                return (
+                  <View style={{
+                    display: "flex", flexDirection: 'row',
+                    position: "absolute",
+                    right: 0,
+                    bottom: 0,
+                  }}>
+                    <ScreenHeaderBtn iconUrl={icons.lightbulb} dimension="70%" handleNavigation={() => router.push("/Achievement")} />
+                    <ScreenHeaderBtn iconUrl={icons.bell} dimension="70%" handleNavigation={() => router.push("/Notification")} />
+                    <ScreenHeaderBtn iconUrl={icons.menu} dimension="70%" handleNavigation={() => router.push("/modal")} />
+                  </View>
+                )
+              },
               headerTitle: ""
             }}
           />

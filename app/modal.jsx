@@ -1,9 +1,6 @@
 import { StatusBar } from "expo-status-bar"
-import { Pressable, StyleSheet } from "react-native"
-
-import EditScreenInfo from "../components/EditScreenInfo"
+import { Pressable, StyleSheet , View} from "react-native"
 import { Structure, ThemedText, ThemedView } from "../components"
-import { View } from "react-native"
 import { router } from "expo-router"
 import GlobStyles from "../style/index.style"
 import { FONT, SIZES } from "../constants"
