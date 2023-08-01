@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { COLORS, FONT, SIZES, images } from "../constants";
 
-const styles = StyleSheet.create({
+const tabStyles = StyleSheet.create({
     linearGradient: {
         flex: 1,
     },
@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
         display: "flex",
         alignItems: 'center',
         justifyContent: 'space-between',
-        alignSelf: 'center',
     },
     TabContainer: {
         backgroundColor: "transparent",
@@ -80,4 +79,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default styles;
+export default tabStyles;

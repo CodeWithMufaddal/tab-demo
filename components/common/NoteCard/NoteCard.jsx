@@ -3,10 +3,8 @@ import React, { useState } from 'react'
 import Modal from 'react-native-modal'
 import { ThemedText, ThemedView } from '../../Themed'
 import styles from './NoteCard.style'
-import GlobStyles from '../../../style/index.style'
-import Colors from '../../../constants/Colors'
-import { useColorScheme } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
+import { GlobStyles } from '../../../style'
 
 const NoteCard = ({ note, time, i ,numberOfLines}) => {
     const [show, setShow] = useState(false)

@@ -1,3 +1,4 @@
+import PastApplyCard from "./common/Apply/PastApplyCard";
 import ScreenHeaderBtn from "./common/header/ScreenHeaderBtn";
 import NoteCard from "./common/NoteCard/NoteCard";
 import Manu from "./home/welcome/Manu";
@@ -10,6 +11,7 @@ import { ThemedText, ThemedView } from "./Themed";
 export {
   ScreenHeaderBtn,
   NoteCard,
+  PastApplyCard,
   Welcome,
   Structure,
   MonoText,

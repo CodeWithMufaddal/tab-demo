@@ -9,7 +9,6 @@ const COLORS = {
   bgTertiary: "#7a5924",
 
   bgPrimarySade: "#0b060d",
-  // bgSecondarySade: "linear-gradient(45deg, #000, #fff)",
   bgSecondarySade: "#000",
 
   btnPrimary: "#7a5922",
@@ -17,6 +16,9 @@ const COLORS = {
 
   white: "#F3F4F8",
   lightWhite: "#FAFAFC",
+
+  gray: "#696162", 
+  hrLineColor: "#BC8831", 
 };
 
 const FONT = {
@@ -26,6 +28,8 @@ const FONT = {
 };
 
 const SIZES = {
+  VSmall: 4,
+  IVSmall: 4,
   xxxSmall: 6,
   xxSmall: 8,
   xSmall: 10,
@@ -41,7 +45,7 @@ const SIZES = {
 
 const SHADOWS = {
   small: {
-    shadowColor: "#000",
+    shadowColor: "inherit",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -51,7 +55,7 @@ const SHADOWS = {
     elevation: 2,
   },
   medium: {
-    shadowColor: "#000",
+    shadowColor: "inherit",
     shadowOffset: {
       width: 0,
       height: 2,

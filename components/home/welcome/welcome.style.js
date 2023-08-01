@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
     marginTop: SIZES.xxxSmall
   },
   hrLine: {
-    borderBottomColor: "#A88B61",
+    // borderBottomColor: "#A88B61",
+    borderBottomColor: COLORS.hrLineColor,
     borderBottomWidth: 1,
     marginHorizontal: SIZES.medium,
     marginVertical: SIZES.medium,
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
   // Notifications
   notificationContainer: {
     alignItems: "flex-start",
-    // justifyContent: "space-between",
+    justifyContent: "space-between",
     justifyContent: "center",
     flexDirection: "column",
     display: "flex",

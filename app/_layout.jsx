@@ -1,19 +1,14 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Link, Redirect, Stack, useGlobalSearchParams, useLocalSearchParams, usePathname, useRouter } from 'expo-router';
-import { useEffect, useState } from 'react';
-import { Image, ImageBackground, Platform, SafeAreaView, View, useColorScheme } from 'react-native';
-import { icons, images } from '../constants';
-import styles from '../style/tab.style';
-import { TouchableOpacity } from 'react-native';
-import { useCallback } from 'react';
+import { Stack, usePathname, useRouter } from 'expo-router';
+import { useEffect, useState, useCallback } from 'react';
+import { Image, Platform, View, useColorScheme, Pressable } from 'react-native';
+import { icons} from '../constants';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
-import Entypo from '@expo/vector-icons/Entypo';
 import { StatusBar } from 'expo-status-bar';
-import { Manu, ScreenHeaderBtn, ThemedText } from '../components';
-import { Pressable } from 'react-native';
-import Modal from 'react-native-modal';
+import { ScreenHeaderBtn, ThemedText } from '../components';
+import { tabStyles } from '../style';
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -51,7 +46,6 @@ export default function RootLayoutNav() {
         setAppIsReady(true);
       }
     }
-
     prepare();
   }, []);
 
@@ -82,21 +76,21 @@ export default function RootLayoutNav() {
             name="(tabs)"
 
             options={{
-              headerStyle: styles.tabsContainer,
+              headerStyle: tabStyles.tabsContainer,
               headerLeft: () => (
-                <View 
-                style={{
-                  position: 'relative',
-                  width: '100%',
-                }}>
+                <View
+                  style={{
+                    position: 'relative',
+                    width: '100%',
+                  }}>
                   <Pressable onPress={() => router.replace("/")}>
                     <Image
                       source={icons.logo}
-                      style={styles.logo}
+                      style={tabStyles.logo}
                       resizeMode="contain"
                     />
                   </Pressable>
-                  {path === "/" && <ThemedText style={styles.userName}>Welcome Mufaddal</ThemedText>}
+                  {path === "/" && <ThemedText style={tabStyles.userName}>Welcome Mufaddal</ThemedText>}
                 </View>
 
               ),
@@ -111,7 +105,7 @@ export default function RootLayoutNav() {
                   }}>
                     <ScreenHeaderBtn iconUrl={icons.lightbulb} dimension="70%" handleNavigation={() => router.push("/Achievement")} />
                     <ScreenHeaderBtn iconUrl={icons.bell} dimension="70%" handleNavigation={() => router.push("/Notification")} />
-                    <ScreenHeaderBtn iconUrl={icons.menu} dimension="70%" handleNavigation={() => router.push("/modal")} />
+                    <ScreenHeaderBtn iconUrl={icons.menu} dimension="100%" handleNavigation={() => router.push("/modal")} />
                   </View>
                 )
               },
@@ -126,14 +120,14 @@ export default function RootLayoutNav() {
                 <Pressable onPress={() => router.replace("/")}>
                   <Image
                     source={icons.logo}
-                    style={styles.logo}
+                    style={tabStyles.logo}
                     resizeMode="contain"
                   />
                 </Pressable>
               ),
               headerRight: () => (
                 <View style={{ flexDirection: 'row', }}>
-                  <ScreenHeaderBtn iconUrl={icons.close_menu} dimension="70%" handleNavigation={() => router.push("/")} />
+                  <ScreenHeaderBtn iconUrl={icons.close_menu} dimension="70%" handleNavigation={() => router.back()} />
                 </View>
               ),
               headerTitle: ""

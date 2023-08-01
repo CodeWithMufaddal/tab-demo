@@ -4,9 +4,9 @@ import { Structure, ThemedText } from '../../components'
 import moment from 'moment/moment'
 import GlobStyles from '../../style/index.style'
 import styles from '../../components/home/welcome/welcome.style'
-import DayOffStyles from '../../style/DayOff.style'
 import { LinearGradient } from 'expo-linear-gradient'
 import { router } from 'expo-router'
+import { DayOffStyles } from '../../style'
 // import styles from '../../components/common/NoteCard/NoteCard.style'
 
 const DayOff = () => {

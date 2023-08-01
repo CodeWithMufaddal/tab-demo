@@ -1,25 +1,24 @@
 import { Tabs } from "expo-router"
 import { useColorScheme } from "react-native"
 import Colors from "../../constants/Colors"
-import styles from "../../style/tab.style"
-import { useState } from "react"
 import TabButton from "../../utils/TabButton"
+import { tabStyles } from "../../style"
+
 
 
 export default function TabLayout() {
   const colorScheme = useColorScheme()
-  const [activeTab, setActiveTab] = useState('index')
 
   return (
     <Tabs
-    initialRouteName="index"
+      initialRouteName="index"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
         translucency: false,
         headerTransparent: true,
         statusBarTranslucent: true,
         navigationBarHidden: true,
-        tabBarStyle: styles.TabContainer,
+        tabBarStyle: tabStyles.TabContainer,
       }}
     >
       <Tabs.Screen
@@ -29,7 +28,7 @@ export default function TabLayout() {
           title: "HOME",
           tabBarIconStyle: { display: "none" },
           tabBarInactiveTintColor: "white",
-          tabBarButton: () => <TabButton routeName={route.name} navigation={navigation} activeTab={activeTab} setActiveTab={setActiveTab} />,
+          tabBarButton: () => <TabButton routeName={route.name} navigation={navigation} />,
         })}
       />
 
@@ -39,8 +38,8 @@ export default function TabLayout() {
           headerShown: false,
           title: "DAY OFF",
           tabBarIconStyle: { display: "none" },
-          // tabBarLabelStyle: styles.Tabs,
-          tabBarButton: () => <TabButton routeName={route.name} navigation={navigation} activeTab={activeTab} setActiveTab={setActiveTab} />,
+          // tabBarLabelStyle: tabStyles.Tabs,
+          tabBarButton: () => <TabButton routeName={route.name} navigation={navigation} />,
         })}
       />
       <Tabs.Screen
@@ -49,8 +48,8 @@ export default function TabLayout() {
           headerShown: false,
           title: "WFH",
           tabBarIconStyle: { display: "none" },
-          // tabBarLabelStyle: styles.Tabs,
-          tabBarButton: () => <TabButton routeName={route.name} navigation={navigation} activeTab={activeTab} setActiveTab={setActiveTab} />,
+          // tabBarLabelStyle: tabStyles.Tabs,
+          tabBarButton: () => <TabButton routeName={route.name} navigation={navigation} />,
         })}
       />
 
@@ -60,7 +59,7 @@ export default function TabLayout() {
           headerShown: false,
           title: "LEAVE",
           tabBarIconStyle: { display: "none" },
-          tabBarButton: () => <TabButton routeName={route.name} navigation={navigation} activeTab={activeTab} setActiveTab={setActiveTab} />,
+          tabBarButton: () => <TabButton routeName={route.name} navigation={navigation} />,
         })}
       />
 
@@ -71,7 +70,7 @@ export default function TabLayout() {
           href: null,
           title: "Notification",
           tabBarIconStyle: { display: "none" },
-          // tabBarButton: () =>,
+          tabBarButton: () => null,
         })}
       />
       <Tabs.Screen
@@ -81,6 +80,7 @@ export default function TabLayout() {
           href: null,
           title: "",
           tabBarIconStyle: { display: "none" },
+          tabBarButton: () => null,
         })}
       />
       <Tabs.Screen
@@ -90,7 +90,7 @@ export default function TabLayout() {
           href: null,
           title: "",
           tabBarIconStyle: { display: "none" },
-          
+          tabBarButton: () => null,
         })}
       />
     </Tabs>
