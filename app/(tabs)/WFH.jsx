@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ThemedText } from '../../components/Themed'
 import { Pressable, View, ImageBackground, SafeAreaView, ScrollView } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { images } from '../../constants'
 import { GlobStyles, applyStyles } from '../../style'
 import moment from 'moment'
-import { PastApplyCard } from '../../components'
+import { ApplyWFH, PastApplyCard } from '../../components'
 
 const WFH = () => {
+
+
   const wfhData = [
     {
       startDate: "2 may 23",
@@ -48,17 +50,7 @@ const WFH = () => {
       <LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} locations={[0, 1]} colors={['rgba(0,0,0,1)', 'transparent']} style={GlobStyles.linearGradient}>
         <SafeAreaView style={GlobStyles.safeAreaView}>
           <View style={[GlobStyles.spaceHorizontal, { marginTop: 138 }]}>
-            <View style={[applyStyles.applyHeader]}>
-              <View style={applyStyles.tab}>
-                <ThemedText style={applyStyles.tabText}>7</ThemedText>
-                <ThemedText style={applyStyles.tabText}>Applied WFH</ThemedText>
-              </View>
-              <LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} locations={[0, 1]} colors={['red', 'orange']} style={[applyStyles.applyButton, GlobStyles.Button.medium]}>
-                <Pressable style={applyStyles.scanTab} >
-                  <ThemedText style={applyStyles.tabText}>Apply WFH</ThemedText>
-                </Pressable>
-              </LinearGradient>
-            </View>
+            <ApplyWFH />
           </View>
           <View style={{ flex: 1 }}>
             <ScrollView showsVerticalScrollIndicator={false} style={{ marginBottom: 85 }}>

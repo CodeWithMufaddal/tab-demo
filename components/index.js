@@ -1,3 +1,5 @@
+import ApplyLeave from "./ApplyLeave";
+import ApplyWFH from "./ApplyWFH";
 import PastApplyCard from "./common/Apply/PastApplyCard";
 import ScreenHeaderBtn from "./common/header/ScreenHeaderBtn";
 import NoteCard from "./common/NoteCard/NoteCard";
@@ -18,4 +20,6 @@ export {
   ThemedText,
   ThemedView,
   Manu,
+  ApplyLeave,
+  ApplyWFH
 };
