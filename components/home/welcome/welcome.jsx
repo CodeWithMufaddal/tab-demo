@@ -64,7 +64,7 @@ const welcome = ({ handleClick }) => {
       </View>
 
       {/* HR */}
-      <View style={styles.hrLine} />
+      <View style={GlobStyles.hrLine} />
 
       <View style={styles.container}>
         <View style={styles.header}>
@@ -103,7 +103,7 @@ const welcome = ({ handleClick }) => {
 
       </View>
 
-      <View style={styles.hrLine} />
+      <View style={GlobStyles.hrLine} />
 
       <View style={styles.container}>
         <View style={styles.header}>
@@ -116,7 +116,7 @@ const welcome = ({ handleClick }) => {
         <NoteCard numberOfLines={1} note={notification[0].note} time={new Date(notification[0].time).toDateString() + " | " + new Date(notification[0].time).toLocaleTimeString()} />
       </View>
 
-      <View style={styles.hrLine} />
+      <View style={GlobStyles.hrLine} />
 
       <View style={styles.container}>
         <View style={styles.header}>

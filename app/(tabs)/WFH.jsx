@@ -1,9 +1,9 @@
 import React from 'react'
-import {  View, ImageBackground, SafeAreaView, ScrollView } from 'react-native'
+import { View, ImageBackground, SafeAreaView, ScrollView } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { images } from '../../constants'
-import { GlobStyles} from '../../style'
-import { ApplyWFH, PastApplyCard } from '../../components'
+import { GlobStyles } from '../../style'
+import { ApplyWFH, PastApplyCard, ThemedText } from '../../components'
 
 const WFH = () => {
 
@@ -43,6 +43,16 @@ const WFH = () => {
     },
   ]
 
+
+  const categorizedData = wfhData.reduce((result, item) => {
+    if (item.status === "Pending") {
+      result.onGoing.push(item);
+    } else {
+      result.Past.push(item);
+    }
+    return result;
+  }, { onGoing: [], Past: [] });
+
   return (
     <ImageBackground source={images.bgHome} style={[GlobStyles.backgroundImage]}>
       <LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} locations={[0, 1]} colors={['rgba(0,0,0,1)', 'transparent']} style={GlobStyles.linearGradient}>
@@ -52,7 +62,17 @@ const WFH = () => {
           </View>
           <View style={{ flex: 1 }}>
             <ScrollView showsVerticalScrollIndicator={false} style={{ marginBottom: 85 }}>
-              {wfhData && wfhData.map((data, i) => <PastApplyCard key={i} data={data} />)}
+              {wfhData && categorizedData?.onGoing?.map((data, i) => <PastApplyCard key={i} data={data} />)}
+              { Boolean(categorizedData.Past.length) && (
+                <View>
+
+                  <View style={GlobStyles.hrLine} />
+                  <ThemedText style={[GlobStyles.spaceHorizontal, { marginVertical: 10 }]}>
+                    Past WFH
+                  </ThemedText>
+                </View>
+              )}
+              {wfhData && categorizedData?.Past?.map((data, i) => <PastApplyCard  key={i} data={data} />)}
             </ScrollView>
           </View>
         </SafeAreaView>

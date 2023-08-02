@@ -10,7 +10,7 @@ import { SHADOWS } from '../../../constants'
 
 
 const PastApplyCard = ({ data }) => {
-    const { startDate, endDate, applyDate, status, Days, reason } = data
+    const { startDate, endDate, applyDate, status, Days, reason, type } = data
     const [show, setShow] = useState(false)
     const handleShow = () => setShow(true)
     const handleClose = () => setShow(false)
@@ -27,7 +27,17 @@ const PastApplyCard = ({ data }) => {
             </View>}
 
             <View style={applyStyles.mainDetailsContainer}>
-                <View style={[applyStyles.innerDetailsContainer, { justifyContent: "flex-end" }]}>
+                {type &&
+                    // <View style={applyStyles.mainDetailsContainer}>
+                    <>
+                        <View style={[applyStyles.innerDetailsContainer, { justifyContent: "flex-end" }]}>
+                            <ThemedText style={applyStyles.grayText}>Type:</ThemedText>
+                            <ThemedText style={applyStyles.detailText}>{type}</ThemedText>
+                        </View>
+                        <View style={[applyStyles.hrLineHorizontal]} />
+                    </>
+                }
+                <View style={[applyStyles.innerDetailsContainer, { justifyContent: "center" }]}>
                     <ThemedText style={applyStyles.grayText}>Day:</ThemedText>
                     <ThemedText style={applyStyles.detailText}>{Days}</ThemedText>
                 </View>
@@ -64,7 +74,6 @@ const PastApplyCard = ({ data }) => {
                 <View style={[applyStyles.status(status)]}>
                     <ThemedText style={applyStyles.tabText}>{status}</ThemedText>
                 </View>
-                {/* <ThemedText style={applyStyles.scanButtonText}>{`${moment(applyDate).format('dddd, D MMMM, YYYY')}`}</ThemedText> */}
                 <ThemedText style={[applyStyles.grayText, applyStyles.bottomApplyDate]}>{applyDate}</ThemedText>
             </View>
         </View>

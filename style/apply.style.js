@@ -33,7 +33,7 @@ const applyStyles = StyleSheet.create({
         alignItems: "center",
         borderRadius: 100,
         backgroundColor: color == "Pending" ? "#FFA500" : color == "Approved" ? "#408E40" : "#FF0000",
-
+        margin: 8
     }),
     scanTab: {
         alignItems: "center",
@@ -87,6 +87,7 @@ const applyStyles = StyleSheet.create({
         flex: 1,
         flexDirection: "row",
         padding: 10,
+        marginVertical: 0,
         alignItems: "center",
         justifyContent: "center",
     },

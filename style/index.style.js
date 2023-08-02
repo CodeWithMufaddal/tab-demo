@@ -5,6 +5,12 @@ const GlobStyles = StyleSheet.create({
     linearGradient: {
         flex: 1,
     },
+    hrLine: {
+        borderBottomColor: COLORS.hrLineColor,
+        borderBottomWidth: 1,
+        marginHorizontal: SIZES.medium,
+        marginVertical: SIZES.medium,
+    },
     w100: {
         width: "100%"
     },
