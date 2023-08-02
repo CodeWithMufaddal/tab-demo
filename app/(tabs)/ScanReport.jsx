@@ -142,7 +142,7 @@ const ScanReport = () => {
                                 scanData?.scan && scanData.scan.map(({ date, scanInTime, scanOutTime, totalWorkTime }, i) => {
                                     return (
                                         <View key={i} style={[GlobStyles.transparent.container, styles.notificationContainer]}>
-                                            <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
+                                            <View style={[GlobStyles.flex, GlobStyles.flexRow, GlobStyles.flexCenterBetween, GlobStyles.w100]}>
                                                 <ThemedText style={styles.scanButtonText}>{`${moment(date).format('dddd, D MMMM, YYYY')}`}</ThemedText>
                                                 <View style={[styles.tab(true, "#408E40"), { paddingVertical: 10 }]}>
                                                     <ThemedText style={styles.tabText}>{totalWorkTime}</ThemedText>

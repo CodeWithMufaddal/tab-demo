@@ -11,6 +11,8 @@ import lightbulb from '../assets/icons/lightbulb.png';
 import bell from '../assets/icons/bell.png'
 import logo from '../assets/icons/logo.webp'
 import close_menu from '../assets/icons/close_menu.png';
+import goBack from '../assets/icons/goBack.png';
+import calendar from '../assets/icons/calendar.png';
 
 export default {
     logo,
@@ -25,5 +27,7 @@ export default {
     share,
     location,
     chevronLeft,
-    chevronRight
+    chevronRight,
+    goBack,
+    calendar,
 };

@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
-import { ThemedText } from '../../components/Themed'
-import { Pressable, View, ImageBackground, SafeAreaView, ScrollView } from 'react-native'
+import React from 'react'
+import {  View, ImageBackground, SafeAreaView, ScrollView } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { images } from '../../constants'
-import { GlobStyles, applyStyles } from '../../style'
-import moment from 'moment'
+import { GlobStyles} from '../../style'
 import { ApplyWFH, PastApplyCard } from '../../components'
 
 const WFH = () => {

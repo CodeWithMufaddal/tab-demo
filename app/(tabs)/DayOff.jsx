@@ -102,11 +102,8 @@ const DayOff = () => {
                       style={[
                         DayOffStyles.DayOffBoxContainer,
                         GlobStyles.transparent.container,
-                        {
-                          flexDirection: 'row',
-                          alignItems: 'center',
-                          justifyContent: 'space-between'
-                        }
+                        GlobStyles.flexRow,
+                        GlobStyles.flexCenterBetween
                       ]}
                     >
                       <LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} locations={[0, 1]} colors={letestEvent === 1 ? ['red', 'orange'] : ['transparent', 'transparent']} style={[GlobStyles.transparent.button.small, DayOffStyles.DayOffDateButton, letestEvent === 1 && { borderWidth: 1, borderColor: "#fff" }]}>

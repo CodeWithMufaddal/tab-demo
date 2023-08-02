@@ -14,11 +14,13 @@ const COLORS = {
   btnPrimary: "#7a5922",
   btnSecondary: "#C1C0C8",
 
+  light: "#FFF",
+  dark: "#000",
   white: "#F3F4F8",
   lightWhite: "#FAFAFC",
 
-  gray: "#696162", 
-  hrLineColor: "#BC8831", 
+  gray: "#696162",
+  hrLineColor: "#BC8831",
 };
 
 const FONT = {

@@ -5,6 +5,9 @@ const GlobStyles = StyleSheet.create({
     linearGradient: {
         flex: 1,
     },
+    w100: {
+        width: "100%"
+    },
     spaceHorizontal: {
         marginHorizontal: SIZES.large
     },
@@ -21,6 +24,25 @@ const GlobStyles = StyleSheet.create({
     headerStyle: {
         flex: 1,
         backgroundColor: "none",
+    },
+    dFlex: {
+        display: "flex",
+    },
+    flex: {
+        flex: 1,
+        display: "flex",
+    },
+    flexRow: {
+        flexDirection: "row",
+    },
+    flexCenter: {
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center"
+    },
+    flexCenterBetween: {
+        alignItems: "center",
+        justifyContent: "space-between",
     },
     logo: {
         width: 100,
