@@ -24,6 +24,7 @@ const NoteCard = ({ note, time, i ,numberOfLines}) => {
                 <Modal
                     isVisible={show}
                     hasBackdrop={false}
+                    onBackButtonPress={handleClose}
                 >
                     {/* <View style={{ backgroundColor: Colors[useColorScheme() ?? "light"].tint }}> */}
                     <ThemedView style={[styles.Modal, { display: 'flex', alignItems: "center" }]}>

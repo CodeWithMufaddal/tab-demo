@@ -27,7 +27,7 @@ const PastApplyCard = ({ data }) => {
             </View>}
 
             <View style={applyStyles.mainDetailsContainer}>
-                <View style={[applyStyles.innerDetailsContainer, {justifyContent: "flex-end"}]}>
+                <View style={[applyStyles.innerDetailsContainer, { justifyContent: "flex-end" }]}>
                     <ThemedText style={applyStyles.grayText}>Day:</ThemedText>
                     <ThemedText style={applyStyles.detailText}>{Days}</ThemedText>
                 </View>
@@ -42,6 +42,7 @@ const PastApplyCard = ({ data }) => {
                         <Modal
                             isVisible={show}
                             hasBackdrop={false}
+                            onBackButtonPress={handleClose}
                         >
                             <ThemedView style={[applyStyles.Modal, SHADOWS.medium, { display: 'flex', alignItems: "center" }]}>
                                 <View>

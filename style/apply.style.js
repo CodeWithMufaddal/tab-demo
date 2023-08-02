@@ -21,10 +21,9 @@ const applyStyles = StyleSheet.create({
         backgroundColor: "#3097FC",
     },
     Modaltab: {
-        padding: 5,
+        padding: 2,
         width: 140,
         borderRadius: 100,
-        marginVertical: 10,
         backgroundColor: "#3097FC",
     },
     status: (color) => ({
@@ -36,9 +35,6 @@ const applyStyles = StyleSheet.create({
         backgroundColor: color == "Pending" ? "#FFA500" : color == "Approved" ? "#408E40" : "#FF0000",
 
     }),
-
-    applyButton: {
-    },
     scanTab: {
         alignItems: "center",
         padding: 10,
@@ -154,12 +150,14 @@ const applyStyles = StyleSheet.create({
     modalMessage: {
         fontFamily: FONT.medium,
         fontSize: 14,
-        marginVertical: 30,
+        marginTop: 30,
+        marginBottom: 5,
+        lineHeight: 17,
     },
     applyModalHeader: {
         justifyContent: "center",
         alignItems: "center",
-        paddingVertical: 10,
+        paddingVertical: 7,
         marginVertical: 11,
     },
     calenderButton: {
@@ -167,7 +165,8 @@ const applyStyles = StyleSheet.create({
         paddingHorizontal: 30
     },
     applyReason: {
-        height: 150,
+        flex: 1,
+        height: 100,
         textAlignVertical: 'top',
         color: COLORS.lightWhite,
         borderWidth: 2,
