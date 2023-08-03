@@ -83,14 +83,24 @@ const applyStyles = StyleSheet.create({
         justifyContent: "center",
     },
 
-    mainDetailsContainer: {
-        flex: 1,
-        flexDirection: "row",
+    container: {
         padding: 10,
         marginVertical: 0,
-        alignItems: "center",
+        width: "100%",
+    },
+    column: {
+        alignItems: 'center',
+        flexDirection: 'row',
         justifyContent: "center",
     },
+    verticalLine: {
+        borderRightColor: COLORS.hrLineColor,
+        borderRightWidth: 1,
+        height: 45,
+        width: 1,
+        marginHorizontal: 10,
+    },
+
 
     innerDetailsContainer: {
         flexDirection: "row",
@@ -99,7 +109,7 @@ const applyStyles = StyleSheet.create({
     grayText: {
         fontFamily: FONT.medium,
         color: COLORS.gray,
-        marginHorizontal: 5,
+        marginRight: 5,
     },
     detailText: {
         fontFamily: FONT.bold,

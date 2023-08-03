@@ -1,30 +1,59 @@
 import React from 'react'
-import {  View, ImageBackground, SafeAreaView, ScrollView } from 'react-native'
+import { View, ImageBackground, SafeAreaView, ScrollView } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { images } from '../../constants'
-import { GlobStyles} from '../../style'
-import { ApplyWFH, PastApplyCard } from '../../components'
+import { GlobStyles } from '../../style'
+import { ApplyLeave, ApplyWFH, PastApplyCard, ThemedText } from '../../components'
+import moment from 'moment'
 
 const Leave = () => {
 
 
   const LeaveData = [
     {
-      startDate: "2 may 23",
+      startDate: "2 may 2023",
       endDate: "3 may 2023",
       applyDate: "04 apr 23, 10:25 AM",
       status: "Pending",
       Days: 2,
-      type: "EL",
+      type: "EL-PL",
       reason: "i am at my home for my sister engagement"
     },
     {
       startDate: "03 jan 2023",
       endDate: "03 jan 2023",
       applyDate: "02 jan 23, 10:25 AM",
-      status: "Pending",
+      status: "Rejected",
       Days: 1,
+      type: "PL",
       reason: "meri train Tuesday ko raat ko hee jo subha pohucha dengi muje pune"
+    },
+    {
+      startDate: "2 Oct 2023",
+      endDate: "5 Oct 2023",
+      applyDate: "04 apr 23, 10:25 AM",
+      status: "Pending",
+      Days: 2,
+      type: "PL",
+      reason: "i am at my home for my sister engagement"
+    },
+    {
+      startDate: "29 Sep 2023",
+      endDate: "29 Sep 2023",
+      applyDate: "03 Aug 23, 10:25 AM",
+      status: "Approved",
+      Days: 2,
+      type: "PL",
+      reason: "i am at my home for my sister engagement"
+    },
+    {
+      startDate: "2 Aug 2023",
+      endDate: "15 Aug 2023",
+      applyDate: "04 apr 23, 10:25 AM",
+      status: "Rejected",
+      Days: 2,
+      type: "EL-PL",
+      reason: "i am at my home for my sister engagement"
     },
     {
       startDate: "25 jul 2023",
@@ -32,6 +61,7 @@ const Leave = () => {
       applyDate: "25 jul 23, 10:25 AM",
       status: "Approved",
       Days: 2,
+      type: "PL",
       reason: "due to moharram"
     },
     {
@@ -40,20 +70,42 @@ const Leave = () => {
       applyDate: "20 Dec 23, 12:25 PM",
       status: "Pending",
       Days: 3,
+      type: "EL",
       reason: "i have to goo for home trip after two days that is why i need this WFH."
     },
   ]
+
+
+
+
+  const categorizedData = LeaveData.reduce((result, item) => {
+    const endDate = moment(item.endDate, 'D MMMM YYYY'); // Assuming endDate is stored in the item object
+    const category = endDate.isBefore(moment()) ? 'Past' : 'onGoing';
+    result[category].push(item);
+    return result;
+  }, { onGoing: [], Past: [] });
 
   return (
     <ImageBackground source={images.bgHome} style={[GlobStyles.backgroundImage]}>
       <LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} locations={[0, 1]} colors={['rgba(0,0,0,1)', 'transparent']} style={GlobStyles.linearGradient}>
         <SafeAreaView style={GlobStyles.safeAreaView}>
           <View style={[GlobStyles.spaceHorizontal, { marginTop: 138 }]}>
-            <ApplyWFH />
+            <ApplyLeave />
           </View>
           <View style={{ flex: 1 }}>
             <ScrollView showsVerticalScrollIndicator={false} style={{ marginBottom: 85 }}>
-              {LeaveData && LeaveData.map((data, i) => <PastApplyCard key={i} data={data} />)}
+              {LeaveData && categorizedData?.onGoing?.map((data, i) => <PastApplyCard key={i} data={data} />)}
+              {Boolean(categorizedData.Past.length) && (
+                <View>
+
+                  {Boolean(categorizedData.Past.length && categorizedData.onGoing.length) && <View style={GlobStyles.hrLine} />}
+
+                  <ThemedText style={[GlobStyles.spaceHorizontal, { marginVertical: 10 }]}>
+                    Past Leave
+                  </ThemedText>
+                </View>
+              )}
+              {LeaveData && categorizedData?.Past?.map((data, i) => <PastApplyCard key={i} data={data} />)}
             </ScrollView>
           </View>
         </SafeAreaView>

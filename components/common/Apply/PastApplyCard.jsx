@@ -1,6 +1,5 @@
 import { View, Text, Pressable } from 'react-native'
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { GlobStyles, applyStyles } from '../../../style'
 import { ThemedText, ThemedView } from '../../Themed'
 import { LinearGradient } from 'expo-linear-gradient'
@@ -10,7 +9,7 @@ import { SHADOWS } from '../../../constants'
 
 
 const PastApplyCard = ({ data }) => {
-    const { startDate, endDate, applyDate, status, Days, reason, type } = data
+    const { startDate, endDate, applyDate, status, reason, type } = data
     const [show, setShow] = useState(false)
     const handleShow = () => setShow(true)
     const handleClose = () => setShow(false)
@@ -26,49 +25,58 @@ const PastApplyCard = ({ data }) => {
                 <ThemedText style={applyStyles.message}>UserName, you have taken Work From Home, but HR has not yet approved it, so please coordinate with HR</ThemedText>
             </View>}
 
-            <View style={applyStyles.mainDetailsContainer}>
-                {type &&
-                    // <View style={applyStyles.mainDetailsContainer}>
+            <View style={[GlobStyles.flex, GlobStyles.flexCenter, GlobStyles.flexRow, applyStyles.container]}>
+                {/* Left column */}
+                {type && (
                     <>
-                        <View style={[applyStyles.innerDetailsContainer, { justifyContent: "flex-end" }]}>
+                        <View style={[applyStyles.column, { justifyContent: 'flex-end' }]}>
                             <ThemedText style={applyStyles.grayText}>Type:</ThemedText>
                             <ThemedText style={applyStyles.detailText}>{type}</ThemedText>
                         </View>
-                        <View style={[applyStyles.hrLineHorizontal]} />
+                        <View style={applyStyles.verticalLine} />
                     </>
-                }
-                <View style={[applyStyles.innerDetailsContainer, { justifyContent: "center" }]}>
-                    <ThemedText style={applyStyles.grayText}>Day:</ThemedText>
-                    <ThemedText style={applyStyles.detailText}>{Days}</ThemedText>
+                )}
+
+                {/* Middle column */}
+                <View style={[GlobStyles.flexRow, applyStyles.column, { width: "auto" }]}>
+                    <ThemedText style={[applyStyles.grayText]}>Day:</ThemedText>
+                    <ThemedText> {startDate && endDate && moment(endDate, "D MMM YY").diff(moment(startDate, "D MMM YY"), 'days') + 1} </ThemedText>
+
                 </View>
-                <View style={[applyStyles.hrLineHorizontal]} />
-                <View style={[applyStyles.innerDetailsContainer]}>
+                <View style={applyStyles.verticalLine} />
+
+                {/* Right column */}
+                <View style={[applyStyles.column, { justifyContent: 'flex-start' }]}>
                     <ThemedText style={applyStyles.grayText}>Reason:</ThemedText>
                     <View style={applyStyles.notificationBottomContainer}>
                         <Pressable onPress={handleShow}>
                             <ThemedText style={[applyStyles.detailText]}>View</ThemedText>
                         </Pressable>
 
+                        {/* Modal */}
                         <Modal
                             isVisible={show}
                             hasBackdrop={false}
                             onBackButtonPress={handleClose}
                         >
-                            <ThemedView style={[applyStyles.Modal, SHADOWS.medium, { display: 'flex', alignItems: "center" }]}>
+                            {/* Modal content */}
+                            <ThemedView style={[applyStyles.Modal, SHADOWS.medium, { display: 'flex', alignItems: 'center' }]}>
                                 <View>
                                     <ThemedText style={applyStyles.ModalText}>{reason}</ThemedText>
                                 </View>
                                 <Pressable onPress={handleClose}>
+                                    {/* Close button */}
                                     <LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} locations={[0, 1]} colors={['red', 'orange']} style={[applyStyles.scanButton, GlobStyles.Button.small, { paddingHorizontal: 30, paddingVertical: 10 }]}>
                                         <ThemedText style={applyStyles.confirmButton}>Okey</ThemedText>
                                     </LinearGradient>
                                 </Pressable>
                             </ThemedView>
                         </Modal>
-
-                    </View >
+                    </View>
                 </View>
             </View>
+
+
 
             <View style={{ flex: 1, flexDirection: "row", justifyContent: "center", alignItems: "center", width: "100%" }}>
                 <View style={[applyStyles.status(status)]}>
