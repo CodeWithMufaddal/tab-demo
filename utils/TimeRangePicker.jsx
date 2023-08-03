@@ -1,34 +1,32 @@
 import React, { useCallback, useState } from 'react';
-import { View, Pressable, Image } from 'react-native';
+import { View, Pressable} from 'react-native';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import { GlobStyles, applyStyles } from '../style';
 import { ThemedText } from '../components/Themed';
-import styles from '../components/common/header/screenheader.style';
 import moment from 'moment';
 
-const DatePicker = ({ label, icon, date, setDate }) => {
+const TimeRangePicker = ({ label,  date,  setDate }) => {
     const [pickerVisible, setPickerVisible] = useState(false);
-    const handleDateChange = useCallback((selectedDate) => {
-        if (selectedDate instanceof Date) {
-            setDate(selectedDate);
+
+    const handleStartTimeChange = useCallback((selectedTime) => {
+        if (selectedTime instanceof Date) {
+            console.log(selectedTime, 'time')
+            setDate(selectedTime);
         }
         setPickerVisible(false);
-    }, [pickerVisible]);
-
+    }, []);
     const renderPicker = () => {
         if (pickerVisible) {
             return (
                 <RNDateTimePicker
                     style={{ width: 200 }}
                     value={date || new Date()}
-                    mode="date"
-                    placeholder="Select date"
-                    format="YYYY-MM-DD"
-                    minDate="2016-05-01"
-                    maxDate="2020-12-12"
+                    mode="time"
+                    display='spinner'
+                    // is24Hour={true} // Adjust to your preference
                     confirmBtnText="OK"
                     cancelBtnText="Cancel"
-                    onChange={(event, selectedDate) => handleDateChange(selectedDate)}
+                    onChange={(event, selectedTime) => handleStartTimeChange(selectedTime)}
                 />
             );
         }
@@ -39,15 +37,11 @@ const DatePicker = ({ label, icon, date, setDate }) => {
             <Pressable onPress={() => setPickerVisible(!pickerVisible)}>
                 <View style={[GlobStyles.flex, GlobStyles.flexRow, GlobStyles.flexCenterBetween, GlobStyles.transparent.button.small, { flex: 1, paddingVertical: 3, paddingHorizontal: 15, marginVertical: 10 }]}>
                     <ThemedText style={applyStyles.labelText}>
-                        {date ? moment(date).format("D-M-YYYY") : label}
+                        {label}
                     </ThemedText>
-                    <View style={[applyStyles.btnContainer, GlobStyles.dFlex, { borderWidth: 0, justifyContent: 'flex-end' }]}>
-                        <Image
-                            source={icon}
-                            resizeMode="center"
-                            style={[styles.btnImg('70%')]}
-                        />
-                    </View>
+                    <ThemedText style={applyStyles.labelText}>
+                        {date ? moment(date).format("h:mm A") : "--:-- --"}
+                    </ThemedText>
                 </View>
             </Pressable>
 
@@ -56,4 +50,4 @@ const DatePicker = ({ label, icon, date, setDate }) => {
     );
 };
 
-export default DatePicker;
+export default TimeRangePicker;

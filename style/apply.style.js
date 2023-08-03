@@ -20,6 +20,19 @@ const applyStyles = StyleSheet.create({
         borderRadius: 100,
         backgroundColor: "#3097FC",
     },
+    LeaveTab: (count) => ({
+        width: 75,
+        marginRight: 5,
+        borderRadius: 100,
+        backgroundColor: count <= 0 ? "#E26464" : "#408E40",
+    }),
+    LeaveModalTab: (count) => ({
+        paddingVertical: 3,
+        width: 120,
+        marginRight: 10,
+        borderRadius: 100,
+        backgroundColor: count <= 0 ? "#E26464" : "#408E40",
+    }),
     Modaltab: {
         padding: 2,
         width: 140,

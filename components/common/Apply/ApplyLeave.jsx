@@ -8,27 +8,38 @@ import { ThemedText } from '../../Themed'
 import styles from '../header/screenheader.style'
 import DatePicker from '../../../utils/DatePicker'
 import moment from 'moment'
+import { RadioButton } from 'react-native-paper'
+import TimeRangePicker from '../../../utils/TimeRangePicker'
 
 const ApplyLeave = () => {
   const [show, setShow] = useState(false)
   const [fromDate, setFromDate] = useState(null)
   const [toDate, setToDate] = useState(null)
+  const [checked, setChecked] = useState('Full')
 
   const theme = useColorScheme()
   const handleShow = () => setShow(true)
   const handleHide = () => setShow(false)
-
+  const handleChange = (value) => {
+    setChecked(value)
+  }
 
   return (
     <View style={[applyStyles.applyHeader]}>
-      <View style={[applyStyles.tab, GlobStyles.flexCenter]}>
-        <ThemedText style={applyStyles.tabText}>7</ThemedText>
-        <ThemedText style={applyStyles.tabText}>Applied WFH</ThemedText>
+      <View style={GlobStyles.flexRow}>
+        <View style={[applyStyles.LeaveTab(1), GlobStyles.flexCenter]}>
+          <ThemedText style={applyStyles.tabText}>1</ThemedText>
+          <ThemedText style={applyStyles.tabText}>EL</ThemedText>
+        </View>
+        <View style={[applyStyles.LeaveTab(10), GlobStyles.flexCenter]}>
+          <ThemedText style={applyStyles.tabText}>10</ThemedText>
+          <ThemedText style={applyStyles.tabText}>PL</ThemedText>
+        </View>
       </View>
 
       <LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} locations={[0, 1]} colors={['red', 'orange']} style={GlobStyles.Button.medium}>
         <Pressable onPress={handleShow} style={applyStyles.scanTab} >
-          <ThemedText style={applyStyles.tabText}>Apply WFH</ThemedText>
+          <ThemedText style={applyStyles.tabText}>Apply Leaves</ThemedText>
         </Pressable>
       </LinearGradient>
 
@@ -73,43 +84,93 @@ const ApplyLeave = () => {
                 <ScrollView showsVerticalScrollIndicator={false} style={[GlobStyles.transparent.container, { borderTopRightRadius: 20, borderTopLeftRadius: 20 }]}>
                   <View style={[GlobStyles.spaceHorizontal,]}>
                     <View style={[applyStyles.applyModalHeader, { justifyContent: "center" }]}>
-                      <View style={[applyStyles.Modaltab, GlobStyles.flexCenter]}>
-                        <ThemedText style={applyStyles.tabText}>1</ThemedText>
-                        <ThemedText style={applyStyles.tabText}>Applied WFH</ThemedText>
-                      </View>
-                      <View>
-                        <ThemedText style={[applyStyles.modalMessage, GlobStyles.flexCenter]}>
-                          Now on every employee is only eligible for 1
-                          WFH per month that to if its a genuine case and
-                          the reason seems appropriate and approved by
-                          management. Although one can apply for more
-                          then 1 WFH but the remuneration will be adjusted
-                          as per the co. terms.
-                        </ThemedText>
+                      <View style={[GlobStyles.flexRow]}>
+                        <View style={[applyStyles.LeaveModalTab(1), GlobStyles.flexCenter]}>
+                          <ThemedText style={applyStyles.tabText}>1</ThemedText>
+                          <ThemedText style={applyStyles.tabText}>EL</ThemedText>
+                        </View>
+                        <View style={[applyStyles.LeaveModalTab(10), GlobStyles.flexCenter]}>
+                          <ThemedText style={applyStyles.tabText}>10</ThemedText>
+                          <ThemedText style={applyStyles.tabText}>PL</ThemedText>
+                        </View>
                       </View>
                     </View>
                     <View>
-                      <View style={[GlobStyles.flexRow, GlobStyles.flex, GlobStyles.flexCenterBetween, GlobStyles.w100]}>
+                      <View style={[GlobStyles.flexRow, GlobStyles.flex, { justifyContent: "space-around" }, GlobStyles.w100,]}>
+                        <Pressable onPress={() => handleChange("Full")} style={[GlobStyles.flexRow, GlobStyles.flexCenter,]}>
+                          <RadioButton
+                            value="Full"
+                            label="Carto Base MAp"
+                            status={checked === 'Full' ? 'checked' : 'unchecked'}
+                            onPress={() => handleChange("Full")}
+                            color="white"
+                            uncheckedColor="white"
+                          />
+                          <ThemedText>Planned Leaves</ThemedText>
+                        </Pressable>
 
-                        <DatePicker
-                          label={"From"}
-                          icon={icons.calendar}
-                          date={fromDate}
-                          setDate={setFromDate}
-                        />
-                        <ThemedText style={[GlobStyles.flexCenter]}>
-                          -
-                        </ThemedText>
-                        <DatePicker label={"To"} icon={icons.calendar}
-                          date={toDate}
-                          setDate={setToDate}
-                        />
+                        <Pressable onPress={() => handleChange("Half")} style={[GlobStyles.flexRow, GlobStyles.flexCenter]}>
+                          <RadioButton
+                            value="Half"
+                            label="Carto Base MAp"
+                            status={checked === 'Half' ? 'checked' : 'unchecked'}
+                            onPress={() => handleChange("Half")}
+                            color="white"
+                            uncheckedColor="white"
+                          />
+                          <ThemedText style={GlobStyles.TextMedium}>Half-Day Leaves</ThemedText>
+                        </Pressable>
                       </View>
-                      <View style={[GlobStyles.flexCenter, { flex: 1 }]}>
-                        <View style={[GlobStyles.transparent.button.small, applyStyles.calenderButton, GlobStyles.flexCenter]}>
-                          <ThemedText>{(toDate && fromDate) && moment(toDate).diff(moment(fromDate), 'days') + 1} Days</ThemedText>
-                        </View>
-                      </View>
+
+
+
+                      {checked == "Full" ?
+                        <>
+                          <View style={[GlobStyles.flexRow, GlobStyles.flex, GlobStyles.flexCenterBetween, GlobStyles.w100]}>
+                            <DatePicker
+                              label={"From"}
+                              icon={icons.calendar}
+                              date={fromDate}
+                              setDate={setFromDate}
+                            />
+                            <ThemedText style={[GlobStyles.flexCenter]}>
+                              -
+                            </ThemedText>
+                            <DatePicker label={"To"} icon={icons.calendar}
+                              date={toDate}
+                              setDate={setToDate}
+                            />
+                          </View>
+                          <View style={[GlobStyles.flexCenter, { flex: 1 }]}>
+                            <View style={[GlobStyles.transparent.button.small, applyStyles.calenderButton, GlobStyles.flexCenter]}>
+                              <ThemedText>{(toDate && fromDate) && moment(toDate).diff(moment(fromDate), 'days') + 1} Days</ThemedText>
+                            </View>
+                          </View>
+                        </>
+                        :
+                        <>
+                          <View style={[GlobStyles.flexRow, GlobStyles.flex, GlobStyles.flexCenterBetween, GlobStyles.w100]}>
+                            <TimeRangePicker
+                              label={"InTime"}
+                              date={fromDate}
+                              setDate={setFromDate}
+                            />
+                            <ThemedText style={[GlobStyles.flexCenter]}>
+                              -
+                            </ThemedText>
+                            <TimeRangePicker label={"OutTime"}
+                              date={toDate}
+                              setDate={setToDate}
+                            />
+                          </View>
+                          <View style={GlobStyles.flexCenter}>
+                            <DatePicker label={"Date"} icon={icons.calendar}
+                              date={toDate}
+                              setDate={setToDate}
+                            />
+                          </View>
+                        </>
+                      }
                     </View>
                     <View>
                       <TextInput
@@ -121,12 +182,11 @@ const ApplyLeave = () => {
 
                       <View style={[GlobStyles.flexCenter, GlobStyles.flex]}>
                         <LinearGradient start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }} locations={[0, 1]} colors={['red', 'orange']} style={[GlobStyles.Button.medium, GlobStyles.flexCenter, { width: "50%" }]}>
-                          <Pressable onPress={handleShow} style={applyStyles.scanTab} >
-                            <ThemedText style={applyStyles.tabText}>Apply Now</ThemedText>
+                          <Pressable onPress={handleShow} style={[applyStyles.scanTab, { width: 150, padding: 15 }]} >
+                            <ThemedText style={applyStyles.tabText}>Apply For Leaves</ThemedText>
                           </Pressable>
                         </LinearGradient>
                       </View>
-
                     </View>
                   </View>
                 </ScrollView>
